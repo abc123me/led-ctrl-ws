@@ -1,0 +1,9 @@
+__pycache__/*
+leds-venv/*
+.bashrc
+.profile
+.bash_history
+.cache/*
+.profile
+.python_history
+.local/*

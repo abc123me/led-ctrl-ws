@@ -1,4 +1,4 @@
-#!/usr/bin/env /home/leds/leds-venv/bin/python3
+#!/usr/bin/env /home/leds/led-ctrl-ws/leds-venv/bin/python3
 
 import atexit, time, rpi_ws281x
 from led_strip import LedStrip, lookup_strip_type

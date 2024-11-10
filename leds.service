@@ -3,12 +3,12 @@ Description=LED Control service
 After=nginx.service mariadb.service
 
 [Service]
-ExecStart=/home/leds/leds.py
+ExecStart=/home/leds/led-ctrl-ws/leds.py
 StopSignal=SIGINT
 KillSignal=SIGKILL
 ReloadSignal=SIGINFO
-User=leds
-Group=leds
+User=root
+Group=root
 Type=simple
 
 [Install]

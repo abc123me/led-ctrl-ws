@@ -1,0 +1,21 @@
+# LED control server configuration
+server {
+	# Run default server type on port 80
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	# Root as leds/www, www-data is member of leds group
+	root /home/leds/www;
+	# Use PHP index
+	index index.php;
+	# Default server name
+	server_name _;
+	location / {
+		# First attempt to serve request as file, then as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+	# pass PHP scripts to FastCGI server
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/run/php/php-fpm.sock;
+	}
+}

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -e
 set -x
@@ -6,16 +6,17 @@ set -x
 start_enable() {
 	for s in $@; do
 		echo "Enabling and starting service $s"
-		sudo systemctl enable "$s"
-		sudo systemctl start "$s"
+		sudo systemctl enable $s
+		sudo systemctl start $s
 	done
 }
 
 # Install crap
 crap=""
-if ! type mariadb; then crap="$crap mariadb-server php-mysql"; fi
+PHP_VER="php8.2"
+if ! type mariadb; then crap="$crap mariadb-server ${PHP_VER}-mysql"; fi
 if ! type pip3; then crap="$crap python3"; fi
-if ! type php; then crap="$crap php-common php-fpm php-mysql"; fi
+if ! type php; then crap="$crap ${PHP_VER}-common ${PHP_VER}-fpm ${PHP_VER}-mysql"; fi
 if ! type git; then crap="$crap git"; fi
 if [ ! -d "/etc/nginx" ]; then crap="$crap nginx"; fi
 
@@ -77,11 +78,11 @@ sudo systemctl daemon-reload
 
 #Setup MariaDB
 echo "Setting up database"
-start_enable mariad
+start_enable mariadb
 sudo mariadb < "$SETUP_DIR/LED_DB.dump"
 
 # Enable and start the rest of the services
 echo "Starting everything up!"
-start_enable php-fpm nginx leds
+start_enable "${PHP_VER}-fpm" nginx leds
 
 # TODO: Setup databse

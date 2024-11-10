@@ -1,6 +1,6 @@
 # led-ctrl-ws
 
-LED control webserver for pi
+LED control webserver and LED control daemon for pi, this really should be too repos, but I'm lazy!
 
 # Installation
 
@@ -11,3 +11,4 @@ wget "https://raw.githubusercontent.com/abc123me/led-ctrl-ws/refs/heads/master/l
 chmod +x leds-setup.sh
 ./leds-setup.sh
 ```
+

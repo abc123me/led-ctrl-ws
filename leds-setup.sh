@@ -6,7 +6,7 @@ set -x
 # Install crap
 sudo apt update --yes
 sudo apt upgrade --yes
-sudo apt install --yes nginx mariadb-server php-common php-fpm php-mysql mycli python3 python3-pip
+sudo apt install --yes git nginx mariadb-server php-common php-fpm php-mysql mycli python3 python3-pip
 
 # Create LED user, home directory, etc.
 sudo useradd leds

@@ -81,6 +81,8 @@ sudo systemctl daemon-reload
 echo "Setting up database"
 start_enable mariadb
 sudo mariadb < "$SETUP_DIR/LED_DB.dump"
+echo "GRANT SELECT ON LED_DB.LedStrips TO 'leds'@'localhost';" | sudo mariadb || true
+echo "CREATE USER 'leds'@'localhost' IDENTIFIED BY 'password';" | sudo mariadb || true
 
 # Enable and start the rest of the services
 echo "Starting everything up!"

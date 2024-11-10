@@ -11,9 +11,4 @@
 	<h1>The ultimate LED control dashboard™</h1>
 
 	<h2> LED Strip is </h2>
-
-	<button hx-post="/api.php?action=setAllLEDs,all=on" hx-swap="outerHTML">
-		LEDs on
-	</button>
-
 </body></html>

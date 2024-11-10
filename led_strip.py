@@ -14,9 +14,9 @@ class LedStrip:
 		s = self.strip
 
 		if self.animation_id == 0: # Static (singular color)
-			self.clear(Color(255, 255, 255))
+			self.clear(Color(255, 0, 255))
 		elif self.animation_id == 1: # Rainbow
-			if self.animation_ctr > 10000:
+			if self.animation_ctr > 255:
 				self.animation_ctr = 0
 
 			for i in range(s.numPixels()):
@@ -24,7 +24,7 @@ class LedStrip:
 			s.show()
 
 			self.animation_ctr += 1
-			return 0.005
+			return 0.02
 		elif self.animation_id == 2: # 3 bit color wipe
 			if self.animation_ctr > 7:
 				self.animation_ctr = 1

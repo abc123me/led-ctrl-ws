@@ -48,6 +48,7 @@ fi
 if [ ! -f "$REPO_DIR/leds-venv/bin/pip" ]; then
 	sudo -u leds python3 -m venv "$REPO_DIR/leds-venv"
 	sudo -u leds "$REPO_DIR/leds-venv/bin/pip" install rpi-ws281x
+	sudo -u leds "$REPO_DIR/leds-venv/bin/pip" install mysql-connector-python
 fi
 
 # Add LED service control to sudoers

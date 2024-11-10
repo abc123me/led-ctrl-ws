@@ -1,6 +1,8 @@
 
 __pycache__/*
 leds-venv/*
+.ssh/id_rsa
+.ssh/id_rsa.pub
 .bashrc
 .profile
 .bash_history
